@@ -42,7 +42,8 @@ GEM
     database_cleaner (1.1.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
-    execjs (2.0.1)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -127,6 +128,7 @@ DEPENDENCIES
   ancestry
   coffee-rails
   database_cleaner
+  execjs (= 1.4.0)
   haml-rails
   jquery-rails
   rails (= 3.2.14)

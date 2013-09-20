@@ -7,14 +7,15 @@
           %li= msg
 
   = f.hidden_field :ancestry if @page.ancestry
-  .field
-    = f.label :slug
-    = f.text_field :slug
+  - if @page.new_record?
+    .field
+      = f.label :slug
+      = f.text_field :slug
   .field
     = f.label :title
     = f.text_field :title
   .field
     = f.label :content
-    = f.text_area :content
+    = f.text_area :content, value:@page.formatted_content
   .actions
     = f.submit 'Save'

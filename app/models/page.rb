@@ -3,7 +3,7 @@
 class Page < ActiveRecord::Base
   has_ancestry cache_depth:true, orphan_strategy: :rootify
   attr_accessible :slug, :title, :content, :ancestry
-  validates :slug, presence:true, uniqueness:true, format:{with:/\A[\wа-яА-Я_]+\z/i, message:'Chars, digits and underscore only'}
+  validates :slug, presence:true, uniqueness:true, format:{with:/\A[\wа-яА-Я_]+\z/, message:'Chars, digits and underscore only'}
   validates :title, presence:true
 
   before_save :setup_before_save

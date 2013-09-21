@@ -33,6 +33,6 @@ class PagesController < ApplicationController
   def find_page
     slug = params[:slugs].split('/').last if params[:slugs]
     slug ||= params[:slug]
-    @page = Page.where('slug==?', slug).first
+    @page = Page.find_by_slug(slug)
   end
 end

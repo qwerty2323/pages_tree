@@ -1,3 +1,123 @@
 == Тест
   Это приложение написано в целях ответа на тестовое задание.
   Пожалуйста, не пытайтесь использовать его и его код в своих проектах.
+
+
+== ab results
+
+Для http://pages-tree.herokuapp.com (таймаут не позволяет больше 3000 запросов)
+
+  MacBook-Pro-Alex:pages_tree fotonstep$ ab -n3000 -c100 http://pages-tree.herokuapp.com/
+  This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+  Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+  Licensed to The Apache Software Foundation, http://www.apache.org/
+
+  Benchmarking pages-tree.herokuapp.com (be patient)
+  Completed 300 requests
+  Completed 600 requests
+  Completed 900 requests
+  Completed 1200 requests
+  Completed 1500 requests
+  Completed 1800 requests
+  Completed 2100 requests
+  Completed 2400 requests
+  Completed 2700 requests
+  Completed 3000 requests
+  Finished 3000 requests
+
+
+  Server Software:        WEBrick/1.3.1
+  Server Hostname:        pages-tree.herokuapp.com
+  Server Port:            80
+
+  Document Path:          /
+  Document Length:        721 bytes
+
+  Concurrency Level:      100
+  Time taken for tests:   80.897 seconds
+  Complete requests:      3000
+  Failed requests:        1
+     (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
+  Write errors:           0
+  Total transferred:      4045651 bytes
+  HTML transferred:       2162279 bytes
+  Requests per second:    37.08 [#/sec] (mean)
+  Time per request:       2696.553 [ms] (mean)
+  Time per request:       26.966 [ms] (mean, across all concurrent requests)
+  Transfer rate:          48.84 [Kbytes/sec] received
+
+  Connection Times (ms)
+                min  mean[+/-sd] median   max
+  Connect:      164 1332 5775.0    235   38055
+  Processing:   174  718 819.2    579   33264
+  Waiting:        0  671 773.5    545   33263
+  Total:        345 2050 5929.4    913   70730
+
+  Percentage of the requests served within a certain time (ms)
+    50%    913
+    66%   1118
+    75%   1350
+    80%   1498
+    90%   2196
+    95%   2779
+    98%  38218
+    99%  38466
+   100%  70730 (longest request)
+
+Для http://pages_tree.dev (Pow server, production)
+
+  MacBook-Pro-Alex:pages_tree fotonstep$ ab -n10000 -c100 http://pages_tree.dev/
+  This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+  Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+  Licensed to The Apache Software Foundation, http://www.apache.org/
+
+  Benchmarking pages_tree.dev (be patient)
+  Completed 1000 requests
+  Completed 2000 requests
+  Completed 3000 requests
+  Completed 4000 requests
+  Completed 5000 requests
+  Completed 6000 requests
+  Completed 7000 requests
+  Completed 8000 requests
+  Completed 9000 requests
+  Completed 10000 requests
+  Finished 10000 requests
+
+
+  Server Software:        
+  Server Hostname:        pages_tree.dev
+  Server Port:            80
+
+  Document Path:          /
+  Document Length:        721 bytes
+
+  Concurrency Level:      100
+  Time taken for tests:   170.253 seconds
+  Complete requests:      10000
+  Failed requests:        0
+  Write errors:           0
+  Total transferred:      12800000 bytes
+  HTML transferred:       7210000 bytes
+  Requests per second:    58.74 [#/sec] (mean)
+  Time per request:       1702.528 [ms] (mean)
+  Time per request:       17.025 [ms] (mean, across all concurrent requests)
+  Transfer rate:          73.42 [Kbytes/sec] received
+
+  Connection Times (ms)
+                min  mean[+/-sd] median   max
+  Connect:        0    1   1.5      0      19
+  Processing:  1193 1693 953.5   1582   11774
+  Waiting:     1193 1693 953.5   1581   11773
+  Total:       1195 1694 954.7   1582   11788
+
+  Percentage of the requests served within a certain time (ms)
+    50%   1582
+    66%   1655
+    75%   1708
+    80%   1742
+    90%   1845
+    95%   1921
+    98%   2049
+    99%  10271
+   100%  11788 (longest request)

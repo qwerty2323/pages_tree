@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 20130920110046) do
     t.string   "title",      :null => false
     t.text     "content"
     t.string   "ancestry"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"

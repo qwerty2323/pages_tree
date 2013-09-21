@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.1.2'
+gem 'rails', '3.1.6'
 gem 'jquery-rails'
 gem 'execjs', '1.4.0' # due to JSON bug
 
@@ -12,7 +12,7 @@ group :assets do
 end
 
 group :test do
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.0.1' # https://github.com/bmabey/database_cleaner/issues/224
   gem 'rspec-rails'
 end
 

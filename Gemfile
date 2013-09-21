@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.1.6'
 gem 'jquery-rails'
 gem 'execjs', '1.4.0' # due to JSON bug
+gem 'haml-rails'
 
 group :assets do
-  gem 'haml-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

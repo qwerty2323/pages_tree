@@ -51,7 +51,10 @@ describe Page do
     end
     it 'valid root' do
       root = Page.create(slug:'корневая_страница', title:'корневая_страница')
-      Page.create(slug:'дочерняя_страница', title:'дочерняя_страница', ancestry:root.id).parent.should eq root
+      child = root.children.create(slug:'дочерняя_страница', title:'дочерняя_страница')
+      subchild = child.children.create(slug:'поддочерняя_страница', title:'поддочерняя_страница')
+      child.parent.should eq root
+      subchild.parent.should eq child
     end
   end
 

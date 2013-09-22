@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   def show
   end
   def new
-    @page = @page ? Page.new(ancestry:@page.id) : Page.new
+    @page = @page ? @page.children.new : Page.new
   end
   def edit
   end

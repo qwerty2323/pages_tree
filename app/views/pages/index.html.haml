@@ -2,7 +2,7 @@
   Главная
 
 - @pages.each do |page|
-  - cache "index#{page.id}" do
-    = render partial:'pages/tree', locals:{pages:page.subtree}
+  - cache "index#{page.root.id}" do
+    = render partial:'tree', locals:{pages:page.cached_subtree}
 
 = link_to '+', new_page_path

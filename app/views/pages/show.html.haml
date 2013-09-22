@@ -1,4 +1,4 @@
-- cache "show#{@page.id}" do
+- cache @page do
   - content_for :title do
     = @page.title
   %h1
@@ -6,4 +6,4 @@
     %sup= link_to '+', new_page_path(@page)
   .content= simple_format @page.content
 
-  = render partial:'pages/tree', locals:{pages:@page.subtree}
+  = render partial:'tree', locals:{pages:@page.cached_subtree}

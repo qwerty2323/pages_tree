@@ -18,6 +18,9 @@ class Page < ActiveRecord::Base
     res.gsub!(/\<a\s+?href="\/([\wа-яА-Я\/_]+?)"\>(.+?)\<\/a\>/im){"((#{$1} #{$2}))"} # <a href="/name1/name2/name3">[строка]</a> => ((name1/name2/name3 [строка]))
     res
   end
+  def cached_subtree
+    Rails.cache.fetch("subtree#{self.id}") {self.subtree.arrange}
+  end
 
   def to_param
     self.parent ? "#{self.parent.to_param}/#{self.slug}" : self.slug

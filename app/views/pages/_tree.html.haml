@@ -6,4 +6,4 @@
         %sup
           = link_to 'e', edit_page_path(page)
           = link_to '+', new_page_path(page)
-        = render partial:'tree', collection:subpages
+        = render partial:'tree', locals:{pages:subpages}

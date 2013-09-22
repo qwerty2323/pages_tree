@@ -1,3 +1,8 @@
-= render partial:'pages/tree', locals:{pages:@pages}
+- content_for :title do
+  Главная
 
-= link_to 'Add Root Page', new_page_path
+- @pages.each do |page|
+  - cache "index#{page.id}" do
+    = render partial:'pages/tree', locals:{pages:page.subtree}
+
+= link_to '+', new_page_path

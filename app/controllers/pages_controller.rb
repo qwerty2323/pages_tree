@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
+      expire_fragment "index#{@page.root.id}"
       redirect_to @page, notice: 'Page was successfully created.'
     else
       render action: 'new'
@@ -21,6 +22,8 @@ class PagesController < ApplicationController
   end
   def update
     if @page.update_attributes(params[:page])
+      expire_fragment "index#{@page.root.id}"
+      expire_fragment "show#{@page.id}"
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render action: 'edit'

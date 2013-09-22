@@ -1,10 +1,9 @@
-- content_for :title do
-  = @page.title
+- cache "show#{@page.id}" do
+  - content_for :title do
+    = @page.title
+  %h1
+    = link_to @page.title, edit_page_path(@page)
+    %sup= link_to '+', new_page_path(@page)
+  .content= simple_format @page.content
 
-
-%h1
-  = link_to @page.title, edit_page_path(@page)
-  %sup= link_to 'Add Child Page', new_page_path(@page)
-.content= simple_format @page.content
-
-= render partial:'pages/tree', locals:{pages:@page.children}
+  = render partial:'pages/tree', locals:{pages:@page.subtree}

@@ -26,4 +26,3 @@ group :production do
 end
 
 gem 'ancestry'
-gem 'dalli'

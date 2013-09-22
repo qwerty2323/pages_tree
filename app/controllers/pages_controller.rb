@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
   def create
     @page = Page.new(params[:page])
-    if @page.save!
+    if @page.save
       redirect_to @page, notice: 'Page was successfully created.'
     else
       render action: 'new'

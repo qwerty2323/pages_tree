@@ -19,7 +19,10 @@ class Page < ActiveRecord::Base
     res
   end
   def cached_subtree
-    Rails.cache.fetch("subtree#{self.id}") {self.subtree.arrange}
+    Rails.cache.fetch(self.id) {self.subtree.arrange(order: :id)}
+  end
+  def self.cached_roots
+    Rails.cache.fetch('roots') {Page.roots}
   end
 
   def to_param

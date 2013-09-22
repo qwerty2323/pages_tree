@@ -1,8 +1,8 @@
 - content_for :title do
   Главная
 
-- @pages.each do |page|
-  - cache "index#{page.root.id}" do
-    = render partial:'tree', locals:{pages:page.cached_subtree}
+- cache 'index' do
+  - @pages.each do |page|
+    = nested_pages page.cached_subtree
 
 = link_to '+', new_page_path

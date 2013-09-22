@@ -12,6 +12,8 @@
 
   %body
     #breadcrumbs
-      = link_to 'Home', root_url if controller.action_name!='index'
-      = yield :breadcrumbs
+      - if controller.action_name=='index'
+        Home
+      - else
+        = link_to 'Home', root_url
     #body= yield

@@ -31,40 +31,40 @@
   Server Port:            80
 
   Document Path:          /
-  Document Length:        721 bytes
+  Document Length:        318 bytes
 
   Concurrency Level:      100
-  Time taken for tests:   80.897 seconds
-  Complete requests:      3000
-  Failed requests:        1
-     (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
+  Time taken for tests:   59.717 seconds
+  Complete requests:      2999
+  Failed requests:        2
+     (Connect: 0, Receive: 0, Length: 2, Exceptions: 0)
   Write errors:           0
-  Total transferred:      4045651 bytes
-  HTML transferred:       2162279 bytes
-  Requests per second:    37.08 [#/sec] (mean)
-  Time per request:       2696.553 [ms] (mean)
-  Time per request:       26.966 [ms] (mean, across all concurrent requests)
-  Transfer rate:          48.84 [Kbytes/sec] received
+  Total transferred:      1546848 bytes
+  HTML transferred:       953046 bytes
+  Requests per second:    50.22 [#/sec] (mean)
+  Time per request:       1991.239 [ms] (mean)
+  Time per request:       19.912 [ms] (mean, across all concurrent requests)
+  Transfer rate:          25.30 [Kbytes/sec] received
 
   Connection Times (ms)
                 min  mean[+/-sd] median   max
-  Connect:      164 1332 5775.0    235   38055
-  Processing:   174  718 819.2    579   33264
-  Waiting:        0  671 773.5    545   33263
-  Total:        345 2050 5929.4    913   70730
+  Connect:      166  565 642.0    361    6185
+  Processing:   167  704 1063.8    406   25437
+  Waiting:      165  603 952.8    389   25279
+  Total:        342 1270 1259.9    869   25950
 
   Percentage of the requests served within a certain time (ms)
-    50%    913
-    66%   1118
-    75%   1350
-    80%   1498
-    90%   2196
-    95%   2779
-    98%  38218
-    99%  38466
-   100%  70730 (longest request)
+    50%    869
+    66%   1036
+    75%   1193
+    80%   1596
+    90%   2332
+    95%   3742
+    98%   5271
+    99%   5992
+   100%  25950 (longest request)
 
-Для http://pages_tree.dev (Pow server, production)
+Для http://pages_tree.dev (local Pow server, production, все страницы прокешированы)
 
   MacBook-Pro-Alex:pages_tree fotonstep$ ab -n10000 -c100 http://pages_tree.dev/
   This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
@@ -90,34 +90,34 @@
   Server Port:            80
 
   Document Path:          /
-  Document Length:        721 bytes
+  Document Length:        0 bytes
 
   Concurrency Level:      100
-  Time taken for tests:   170.253 seconds
+  Time taken for tests:   5.378 seconds
   Complete requests:      10000
   Failed requests:        0
   Write errors:           0
-  Total transferred:      12800000 bytes
-  HTML transferred:       7210000 bytes
-  Requests per second:    58.74 [#/sec] (mean)
-  Time per request:       1702.528 [ms] (mean)
-  Time per request:       17.025 [ms] (mean, across all concurrent requests)
-  Transfer rate:          73.42 [Kbytes/sec] received
+  Total transferred:      0 bytes
+  HTML transferred:       0 bytes
+  Requests per second:    1859.46 [#/sec] (mean)
+  Time per request:       53.779 [ms] (mean)
+  Time per request:       0.538 [ms] (mean, across all concurrent requests)
+  Transfer rate:          0.00 [Kbytes/sec] received
 
   Connection Times (ms)
-                min  mean[+/-sd] median   max
-  Connect:        0    1   1.5      0      19
-  Processing:  1193 1693 953.5   1582   11774
-  Waiting:     1193 1693 953.5   1581   11773
-  Total:       1195 1694 954.7   1582   11788
+               min  mean[+/-sd] median   max
+  Connect:        0   17  14.3     14     105
+  Processing:     1   36  24.5     30     208
+  Waiting:        0    0   0.0      0       0
+  Total:          3   53  26.5     48     259
 
   Percentage of the requests served within a certain time (ms)
-    50%   1582
-    66%   1655
-    75%   1708
-    80%   1742
-    90%   1845
-    95%   1921
-    98%   2049
-    99%  10271
-   100%  11788 (longest request)
+   50%     48
+   66%     58
+   75%     66
+   80%     71
+   90%     85
+   95%     95
+   98%    124
+   99%    170
+  100%    259 (longest request)
